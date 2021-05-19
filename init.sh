@@ -46,3 +46,8 @@ firewall-cmd --permanent --zone=public --add-port=1010/tcp
 firewall-cmd --permanent --zone=public --add-port=1120/tcp
 firewall-cmd --reload
 firewall-cmd --list-all
+systemctl start nginx
+nohup /usr/local/bin/ss-server -s 0.0.0.0 -p 8388 -k 961120cm -m aes-256-cfb -u -l 1080 -t 600 --fast-open true &
+#重启后执行这些
+#firewall-cmd --reload
+#systemctl restart nginx
